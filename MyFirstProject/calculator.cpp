@@ -17,7 +17,7 @@ int main(){
     std::cout << "Press '^' for exponential" << std::endl;
     std::cout << "Press 'M' for average" << std::endl;
 
-    std::cout << "Enter number 1: ";
+    std::cout << "Please Enter number 1: ";
     std::cin >> num1;
 
     std::cout << "Enter number 2: ";
