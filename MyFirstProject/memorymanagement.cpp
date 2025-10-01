@@ -1,5 +1,10 @@
 #include <iostream>
 
+/**
+ * @brief square the given number
+ * 
+ * @param x int
+ */
 void square(int &x);
 
 int main(){
@@ -9,7 +14,6 @@ int main(){
     square(number);
 
     std::cout << number << std::endl;
-    
     
     return 0;
 }

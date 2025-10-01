@@ -272,11 +272,11 @@ int main(){     //";" means that a statement is done!Compiler knows it.
     std::cout << "*****************" << std::endl;
     int mynum = 44;
 
-    int *pointer = nullptr;
+    int* pointer = nullptr;
 
     //pointer = &mynum;
 
-    std::cout << *pointer << std::endl;
+    std::cout << pointer << std::endl;
 
     return 0;
 }
