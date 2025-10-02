@@ -16,6 +16,29 @@ namespace ankara{
     int number = 6;
 }
 
+/**
+ * @brief factorial
+ * 
+ * @param num int number
+ * @return int num!
+ */
+int factorial(int num){
+    if(num > 0){
+        if(num > 1){
+            return num * factorial(num - 1);
+        }
+        else{
+            return 1;
+        }
+    }
+    else if(num == 0){
+        return 1;
+    }
+    else{
+        return -1;
+    }
+}
+
 int main(){     //";" means that a statement is done!Compiler knows it.
 
     //USAGE OF "std::cout":
@@ -276,7 +299,21 @@ int main(){     //";" means that a statement is done!Compiler knows it.
 
     //pointer = &mynum;
 
-    std::cout << pointer << std::endl;
+    //std::cout << pointer << std::endl;
+
+    //* RECURSION
+    // recursion = a programming technique where a function
+    //             invokes itself within.
+
+    // advantages = less code and is cleaner
+    //              useful for sorting and searching algorithms
+
+    // disadvantages = uses more memory and slower
+
+
+    //std::cout << factorial(10) << std::endl;
+
+    
 
     return 0;
 }
