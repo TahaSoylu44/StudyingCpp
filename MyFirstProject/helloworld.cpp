@@ -251,6 +251,19 @@ int main(){     //";" means that a statement is done!Compiler knows it.
     //.find()   -> Returns the index of what we look for.Resembles with ".index()" in Python.
     //.erase()  -> Deletes the some parts of the string at given positions.
 
+    std::cout << "#####################" << std::endl;
+    // std::cout << name.length() << std::endl;
+    // std::cout << name.empty() << std::endl;
+    // name.clear();
+    // std::cout << name << std::endl;
+
+    // std::cout << name.find("h") << std::endl;
+    
+    // std::cout << name.append() << std::endl;
+    // std::cout << name.at() << std::endl;
+    // std::cout << name.insert() << std::endl;
+    // std::cout << name.find() << std::endl;
+    // std::cout << name.erase() << std::endl;
 
     //fill()
     //fill()    -> fills a range of elements with a specified value.
@@ -311,7 +324,7 @@ int main(){     //";" means that a statement is done!Compiler knows it.
     // disadvantages = uses more memory and slower
 
 
-    //std::cout << factorial(10) << std::endl;
+    //std::cout << factorial(10) << std::endl;F
 
     
 
