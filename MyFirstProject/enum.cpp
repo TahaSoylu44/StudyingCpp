@@ -1,6 +1,6 @@
 #include <iostream>
 
-enum Car {Mustang = 2023, Corvette = 2001, Corolla = 2018, Peugeot = 2011};
+enum Car {Mustang, Corvette, Corolla, Peugeot};
 
 int main() {
     
@@ -12,26 +12,25 @@ int main() {
     Car car = Mustang;
 
     switch(Mustang){
-        case 2023:
-            std::cout << "The year is 2023" << std::endl;
+        case 0:
+            std::cout << "The year is 0" << std::endl;
             break;
 
-        case 2001:
-            std::cout << "The year is 2023" << std::endl;
+        case 1:
+            std::cout << "The year is 1" << std::endl;
             break;
         
-        case 2018:
-            std::cout << "The year is 2023" << std::endl;
+        case 2:
+            std::cout << "The year is 2" << std::endl;
             break;
 
-        case 2011:
-            std::cout << "The year is 2023" << std::endl;
+        case 3:
+            std::cout << "The year is 3" << std::endl;
             break;
 
         default:
             std::cout << "We do not know the year" << std::endl;
     }
-
 
     return 0;
 }
