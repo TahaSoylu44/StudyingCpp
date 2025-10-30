@@ -282,28 +282,139 @@ Node* merge(Node* &head1, Node* &head2){
     return newHead;
 }
 
+Node* move(Node* &node, int k){
+    for (int i = 0; i < k; i++)
+    {
+        node = node->next;
+    }
+    return node;
+}
+
+Node* intersection(Node* head1, Node* head2){
+    int l1 = 0;
+    int l2 = 0;
+    int diff;
+    int min;
+    bool isBig;
+    Node* tmp1;
+    Node* tmp2;
+
+    for (Node* i = head1; i != nullptr; i=i->next) l1++;
+    for (Node* i = head2; i != nullptr; i=i->next) l2++;
+
+    if (l1 >= l2)
+    {
+        tmp1 = move(head1, (l1 - l2));
+        tmp2 = head2;
+    }
+    else
+    {
+        tmp2 = move(head2, (l2 - l1));
+        tmp1 = head1;
+    }
+    while (tmp1 && tmp2)
+    {
+        if (tmp1 == tmp2)
+        {
+            return tmp1;
+        }
+        tmp1 = tmp1->next;
+        tmp2 = tmp2->next;
+    }
+    return nullptr;
+}
+
+bool detectCycle(Node* head){
+    Node* s = head;
+    Node* f = head;
+
+    while (f && f->next)
+    {
+        s = s->next;
+        f = f->next->next;
+        
+        if (s == f)
+        {
+            return true;
+        }
+        s = s->next;
+        f = f->next->next;
+    }
+    return false;
+}
+
+void breakCycle(Node* &head){
+    if (head == nullptr)
+    {
+        return;
+    }
+    
+    if (!detectCycle(head))
+    {
+        return;
+    }
+
+    Node* s = head;
+    Node* f = head;
+    Node* start;
+
+    while (f && f->next)
+    {
+        s = s->next;
+        f = f->next->next;
+
+        if (s == f)
+        {
+            f = head;
+            break;
+        }
+    }
+    
+    while (s != f)
+    {
+        s = s->next;
+        f = f->next;
+    }
+    start = f;
+
+    while (f->next)
+    {
+        s = f->next;
+        if (s == start)
+        {
+            f->next = nullptr;
+            break;
+        
+        }
+        f = s;
+    }
+}
+
 int main() {
     Node* node11 = new Node(1);
     Node* head1 = node11;
-    Node* node12 = new Node(3);
-    Node* node13 = new Node(5);
-    Node* node14 = new Node(6);
+    Node* node12 = new Node(2);
+    Node* node13 = new Node(3);
+    Node* node14 = new Node(4);
+    Node* node15 = new Node(5);
 
     node11->next = node12;
     node12->next = node13;
     node13->next = node14;
+    node14->next = node15;
+    node15->next = node13;
 
-    Node* node21 = new Node(2);
-    Node* head2 = node21;
-    Node* node22 = new Node(4);
-    Node* node23 = new Node(7);
+    // Node* node21 = new Node(5);
+    // Node* head2 = node21;
+    // Node* node22 = new Node(6);
+    // Node* node23 = new Node(7);
 
-    node21->next = node22;
-    node22->next = node23;
+    // node21->next = node22;
+    // node22->next = node23;
+    // node23->next = node14;
 
+    breakCycle(head1);
     traverseLinkedList(head1);
-    traverseLinkedList(head2);
-    Node* newHead = merge(head1, head2);
-    traverseLinkedList(newHead);
+    
     return 0;
 }
